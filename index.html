@@ -2,12 +2,153 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jasmine-components</title>
+    <title>Glow Hair Studio</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fdf8f5;
+        color: #222;
+      }
+
+      .hero {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(to bottom, #f7e7e1, #fff);
+      }
+
+      .hero img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      .hero p {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .actions button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 999px;
+        background: #222;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .actions button:hover {
+        background: #444;
+      }
+
+      .chat-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .messages {
+        min-height: 250px;
+        padding: 10px;
+      }
+
+      .message {
+        margin: 10px 0;
+        padding: 12px 16px;
+        border-radius: 14px;
+        max-width: 75%;
+        line-height: 1.4;
+      }
+
+      .user {
+        background: #222;
+        color: white;
+        margin-left: auto;
+      }
+
+      .bot {
+        background: #eee;
+        color: #222;
+      }
+
+      .input-area {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .input-area input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        font-size: 1rem;
+      }
+
+      .input-area button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 12px;
+        background: #222;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="hero">
+      <img
+        src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80"
+        alt="Hair salon"
+      />
+      <h1>Glow Hair Studio</h1>
+      <p>Book your perfect look in seconds ✨</p>
+    </div>
+
+    <div class="actions">
+      <button onclick="sendMessage('Buzz Cut')">Buzz Cut</button>
+      <button onclick="sendMessage('Regular Cut')">Regular Cut</button>
+      <button onclick="sendMessage('Yes')">Yes</button>
+      <button onclick="sendMessage('No')">No</button>
+    </div>
+
+    <div class="chat-container">
+      <div class="messages" id="messages"></div>
+
+      <div class="input-area">
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Ask for a haircut or type a response..."
+        />
+        <button onclick="sendFromInput()">Send</button>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
